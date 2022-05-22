@@ -64,6 +64,10 @@ export function track(target, key) {
     depsMap.set(key, dep);
   }
 
+  trackEffect(dep);
+}
+
+export function trackEffect(dep) {
   // 已经在 dep 中
   if (dep.has(activeEffect)) return;
   
@@ -71,14 +75,17 @@ export function track(target, key) {
   activeEffect.deps.push(dep);
 }
 
-function isTracking() {
+export function isTracking() {
   return shouldTrack && activeEffect !== undefined;
 }
 
 export function trigger(target, key) {
   let depsMap = targetMap.get(target);
   let dep = depsMap.get(key);
+  triggerEffects(dep);
+}
 
+export function triggerEffects(dep: any) {
   for (const effect of dep) {
     if (effect.scheduler) {
       effect.scheduler();
