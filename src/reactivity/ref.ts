@@ -30,7 +30,7 @@ class RefImpl {
   }
 }
 
-function convert (value) {
+function convert(value) {
   return isObject(value) ? reactive(value) : value;
 }
 
@@ -51,4 +51,22 @@ export function isRef(ref) {
 export function unRef(ref) {
   // 是否是 ref 对象  ->  ref.value
   return isRef(ref) ? ref.value : ref;
+}
+
+export function proxyRefs(objectWithRefs) {
+  // get set
+  return new Proxy(objectWithRefs, {
+    get(target, key) {
+      // get -> age (ref) -> 返回 .value
+      // not ref -> 返回 value
+      return unRef(Reflect.get(target, key));
+    },
+    set(target, key, value) {
+      if (isRef(target[key]) && !isRef(value)) {
+        return target[key].value = value;
+      } else {
+        return Reflect.set(target, key, value);
+      }
+    }
+  })
 }
