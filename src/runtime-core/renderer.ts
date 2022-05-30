@@ -8,7 +8,10 @@ export function render(vnode, container) {
 function patch(vnode, container) {
   // 去处理组件
 
-  // 判断 是不是 element
+  // 判断 vnode 是不是 element
+  // 是 element 那么就应该处理 element
+  // processElement(vnode, container);
+
   processComponent(vnode, container);
 }
 
