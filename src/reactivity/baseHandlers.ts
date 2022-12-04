@@ -38,7 +38,6 @@ function createSetter() {
   return function (target, key, value) {
     const res = Reflect.set(target, key, value);
 
-    // TODO 触发依赖
     trigger(target, key);
     return res;
   }
@@ -51,8 +50,8 @@ export const mutableHandlers = {
 
 export const readonlyHandlers = {
   get: readonlyGet,
-  set(target, key, value) {
-    console.warn(`key:${key} set 失败 因为 target 是 readonly`, target);
+  set(target, key) {
+    console.warn(`key: ${key} set failed, because target is readonly`, target);
     return true;
   }
 }
