@@ -1,9 +1,11 @@
 import {
 	h
 } from '../../lib/guide-sparrow-vue.esm.js'
+import { Foo } from './Foo.js';
 
 window.self = null
 export const App = {
+	name: 'App',
 	// 必须要写 render
 	// .vue
 	// <template></template>
@@ -11,18 +13,21 @@ export const App = {
 	render() {
 		window.self = this
 		// ui
-		return h("div", {
-			id: 'root',
-			class: ['red', 'hard'],
-			onClick() {
-				console.log('sparrow-vue!')
-			}
-		},
+		return h(
+			"div",
+			{
+				id: 'root',
+				class: ['red', 'hard'],
+				onClick() {
+					console.log('sparrow-vue!')
+				}
+			},
+			[h('div', {}, `hi, ${this.msg}`), h(Foo, { count: 1 })]
 			// "hi, " + this.msg
 			// string
 			// 'hi, sparrow-vue'
 			// Array
-			[h('p', { class: 'red' }, 'hi'), h('p', { class: 'blue' }, this.msg)]
+			// [h('p', { class: 'red' }, 'hi'), h('p', { class: 'blue' }, this.msg)]
 		);
 	},
 	setup() {
