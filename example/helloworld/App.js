@@ -22,7 +22,7 @@ export const App = {
 					console.log('sparrow-vue!')
 				}
 			},
-			[h('div', {}, `hi, ${this.msg}`), h(Foo, { count: 1 })]
+			[h('div', {}, `hi, ${this.msg}`), h(Foo, { count: 1, onAdd(a, b) { console.log('onAdd', a, b) }, onAddFoo(){console.log(11)} })]
 			// "hi, " + this.msg
 			// string
 			// 'hi, sparrow-vue'
