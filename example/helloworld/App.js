@@ -13,7 +13,10 @@ export const App = {
 		// ui
 		return h("div", {
 			id: 'root',
-			class: ['red', 'hard']
+			class: ['red', 'hard'],
+			onClick() {
+				console.log('sparrow-vue!')
+			}
 		},
 			// "hi, " + this.msg
 			// string

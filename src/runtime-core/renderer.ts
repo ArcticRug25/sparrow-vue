@@ -26,7 +26,7 @@ function processElement(vnode, container) {
 }
 
 function mountElement(vnode, container) {
-  const el = vnode.el = document.createElement(vnode.type);
+  const el: HTMLElement = vnode.el = document.createElement(vnode.type);
 
   // string | array
   const { children, shapeFlag } = vnode;
@@ -42,14 +42,23 @@ function mountElement(vnode, container) {
   const { props } = vnode;
   for (const key in props) {
     const val = props[key];
-    el.setAttribute(key, val);
+    if (isOn(key)) {
+      const eventName = key.slice(2).toLowerCase();
+      el.addEventListener(eventName, val);
+    } else {
+      el.setAttribute(key, val);
+    }
   }
 
   container.appendChild(el);
 }
 
-function mountChildren(vnode, container) {
-  vnode.forEach(v => {
+function isOn(key:string) {
+  return /^on[A-Z]/.test(key);
+}
+
+function mountChildren(vnodeChildren, container) {
+  vnodeChildren.forEach(v => {
     patch(v, container);
   })
 }
