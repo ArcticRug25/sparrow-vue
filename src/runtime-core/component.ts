@@ -19,7 +19,7 @@ export function createComponentInstance(vnode) {
   return component;
 }
 
-export function setupComponet(instance) {
+export function setupComponent(instance) {
   // TODO
   initProps(instance, instance.vnode.props);
   initSlots(instance, instance.vnode.children);
