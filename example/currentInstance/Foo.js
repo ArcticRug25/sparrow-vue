@@ -1,0 +1,13 @@
+import {
+  h, getCurrentInstance
+} from '../../lib/guide-sparrow-vue.esm.js'
+
+export const Foo = {
+  setup() {
+    const instance = getCurrentInstance();
+    console.log('Foo:', instance)
+  },
+  render() {
+    return h("div", {}, "foo")
+  }
+}
