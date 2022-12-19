@@ -1,4 +1,4 @@
-import { h } from '../../lib/guide-sparrow-vue.esm.js'
+import { h } from '../../lib/sparrow-vue.esm.js'
 
 export const App = {
   setup() {

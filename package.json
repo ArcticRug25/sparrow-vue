@@ -1,8 +1,8 @@
 {
   "name": "sparrow-vue",
   "version": "1.0.0",
-  "main": "lib/guide-sparrow-vue.cjs.js",
-  "module": "lib/guide-sparrow-vue.esm.js",
+  "main": "lib/sparrow-vue.cjs.js",
+  "module": "lib/sparrow-vue.esm.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",

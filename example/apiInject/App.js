@@ -1,5 +1,5 @@
 // 组件 provide 和 inject 功能
-import { h, provide, inject } from "../../lib/guide-sparrow-vue.esm.js";
+import { h, provide, inject } from "../../lib/sparrow-vue.esm.js";
 
 const Provider = {
   name: "Provider",

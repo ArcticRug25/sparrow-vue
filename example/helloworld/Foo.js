@@ -1,6 +1,6 @@
 import {
   h
-} from '../../lib/guide-sparrow-vue.esm.js'
+} from '../../lib/sparrow-vue.esm.js'
 
 export const Foo = {
   setup(props, { emit }) {

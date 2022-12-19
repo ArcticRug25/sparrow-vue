@@ -1,6 +1,6 @@
 import {
 	h
-} from '../../lib/guide-sparrow-vue.esm.js'
+} from '../../lib/sparrow-vue.esm.js'
 import { Foo } from './Foo.js';
 
 window.self = null

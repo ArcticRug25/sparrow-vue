@@ -1,7 +1,7 @@
 // vue3
 import {
   createApp
-} from '../../lib/guide-sparrow-vue.esm.js';
+} from '../../lib/sparrow-vue.esm.js';
 import {
   App
 } from './App.js';
