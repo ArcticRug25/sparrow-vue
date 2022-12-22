@@ -46,10 +46,10 @@ function setupStatefulComponet(instance) {
     setCurrentInstance(instance);
     const setupResult = setup(shallowReadonly(instance.props), {
       emit: instance.emit,
-    });
+    })
     setCurrentInstance(null);
 
-    handleSetupResult(instance, proxyRefs(setupResult));
+    handleSetupResult(instance, setupResult);
   }
 }
 
@@ -58,7 +58,7 @@ function handleSetupResult(instance, setupResult) {
   // TODO function
 
   if (typeof setupResult === 'object') {
-    instance.setupState = setupResult;
+    instance.setupState = proxyRefs(setupResult);
   }
 
   finishComponentSetup(instance)
